@@ -8,7 +8,10 @@
 		"start-stackblitz": "WRANGLER_SEND_METRICS=false wrangler dev index.js --local"
 	},
 	"dependencies": {
-		"itty-router": "^2.6.1"
+		"@notion-cms/client": "^0.2.0",
+		"@notionhq/client": "^2.2.3",
+		"itty-router": "^2.6.6",
+		"notion-to-md": "^2.5.5"
 	},
 	"devDependencies": {
 		"vitest": "^0.25.2",
