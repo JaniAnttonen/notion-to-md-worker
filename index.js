@@ -4,21 +4,20 @@ import { NotionToMarkdown } from "notion-to-md";
 
 const router = Router();
 
-router.get('/', async () => {
+router.get('/', async (_request, env) => {
 	const notion = new Client({
-		auth: NOTION_TOKEN,
+		auth: env.NOTION_TOKEN,
 	})
 
-	const n2m = new NotionToMarkdown({ notionClient: notion });
 	const db = await notion.databases.query({
-		database_id: DATABASE_ID,
+		database_id: env.DATABASE_ID,
 	})
   return new Response(JSON.stringify(db))
 });
 
-router.get('/:id', async ({ params }) => {
+router.get('/:id', async ({ params }, env) => {
 	const notion = new Client({
-		auth: NOTION_TOKEN,
+		auth: env.NOTION_TOKEN,
 	})
 
 	const n2m = new NotionToMarkdown({ notionClient: notion });
